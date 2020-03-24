@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    tools:context=".RegisterActivity">
+
+    <CheckBox
+        android:id="@+id/diarrea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:buttonTint="#F44336"
+        android:text="Diarrea"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+
+    <EditText
+        android:id="@+id/tosid"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FF4E4E"
+        android:ems="10"
+        android:hint="Veces por minuto"
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="#c0d6e4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView13" />
+
+    <SeekBar
+        android:id="@+id/dolorid"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="false"
+        android:indeterminateTint="#673AB7"
+        android:max="3"
+        android:progress="1"
+        android:progressBackgroundTint="#3F51B5"
+        android:progressTint="#F44336"
+        android:scrollbarSize="10dp"
+        android:secondaryProgressTint="#673AB7"
+        android:thumbTint="#03A9F4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+    <SeekBar
+        android:id="@+id/intensidadtosid"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="false"
+        android:indeterminateTint="#673AB7"
+        android:max="3"
+        android:progress="1"
+        android:progressBackgroundTint="#3F51B5"
+        android:progressTint="#F44336"
+        android:scrollbarSize="10dp"
+        android:secondaryProgressTint="#673AB7"
+        android:thumbTint="#03A9F4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="monospace"
+        android:text="HOLA:"
+        android:textColor="#19608d"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/usernameid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="monospace"
+        android:text="UserName"
+        android:textColor="#19608d"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="350dp"
+        android:layout_height="3dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:background="#F44336"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameid" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="Otros Sintomas:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:text="Intensidad de Tos:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:text="Nivel de Dolor:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:text="Dificultad al Respirar:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:text="Tempetatura:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <SeekBar
+        android:id="@+id/dificultadid"
+        style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:clickable="false"
+        android:indeterminateTint="#673AB7"
+        android:max="3"
+        android:progress="1"
+        android:progressBackgroundTint="#3F51B5"
+        android:progressTint="#F44336"
+        android:scrollbarSize="10dp"
+        android:secondaryProgressTint="#673AB7"
+        android:thumbTint="#03A9F4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:text="Tosidos por minuto:"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+
+    <EditText
+        android:id="@+id/temperaturaid"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#FF4E4E"
+        android:ems="10"
+        android:hint="Celsius"
+        android:inputType="numberDecimal"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="#c0d6e4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
+
+    <CheckBox
+        android:id="@+id/vomito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:buttonTint="#F44336"
+        android:text="Vómito"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diarrea" />
+
+    <TextView
+        android:id="@+id/TVtosid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toStartOf="@+id/intensidadtosid"
+        app:layout_constraintTop_toTopOf="@+id/intensidadtosid" />
+
+    <TextView
+        android:id="@+id/TVdificultadid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toStartOf="@+id/dificultadid"
+        app:layout_constraintTop_toTopOf="@+id/dificultadid" />
+
+    <TextView
+        android:id="@+id/TVdolorid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:textColor="#3F51B5"
+        app:layout_constraintEnd_toStartOf="@+id/dolorid"
+        app:layout_constraintTop_toTopOf="@+id/dolorid" />
+
+    <Button
+        android:id="@+id/enviar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/save_button"
+        android:onClick="enviar"
+        android:text="enviar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vomito" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
