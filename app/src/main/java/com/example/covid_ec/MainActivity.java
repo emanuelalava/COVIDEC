@@ -23,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void iniciarSesion(View view) {
+        Usuario user = new Usuario(username.getText().toString(),"Winter Emanuel","Alava Intriago");
+
+
         Intent i = new Intent(this, HomeActivity.class );
-        i.putExtra("username", username.getText().toString());
+        i.putExtra("user", user);
         startActivity(i);
     }
 

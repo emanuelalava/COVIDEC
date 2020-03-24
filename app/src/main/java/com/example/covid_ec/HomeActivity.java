@@ -11,8 +11,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class HomeActivity extends AppCompatActivity {
-
-    String nombre;
+    Usuario user;
     EditText lugar,fecha,peso,talla,telefono,telefonoContacto;
     TextView nombreTV;
     ToggleButton sexo;
@@ -30,10 +29,10 @@ public class HomeActivity extends AppCompatActivity {
         this.telefono = (EditText)findViewById(R.id.telefonoid);
         this.telefonoContacto = (EditText)findViewById(R.id.telefonoContactoid);
 
-        Bundle bundle = getIntent().getExtras();
-        nombre = bundle.getString("username");
+        //Bundle bundle = getIntent().getExtras();
+        user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.nombreTV);
-        String nombreText="Bienvenido: "+nombre;
+        String nombreText="Bienvenido: "+user.getNombre();
         nombreTV.setText(nombreText);
 
     }
@@ -51,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
     public void nextActivity(View view) {
 
         Intent i = new Intent(this, MainHomeActivity.class );
-        i.putExtra("username", nombre);
+        i.putExtra("user",user);
         startActivity(i);
     }
 }

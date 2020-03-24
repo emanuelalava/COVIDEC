@@ -12,11 +12,10 @@ import java.util.Hashtable;
 
 public class RegisterActivity extends AppCompatActivity {
     Hashtable<Integer, String> estado = new Hashtable<Integer,String>();
-
+    Usuario user;
     SeekBar intensidad,dificultadrespirar,dolor;
     TextView tvintensidad,tvdificultad,tvdolor;
     String infos;
-    String nombre;
     TextView nombreTV;
 
     @Override
@@ -24,10 +23,9 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        Bundle bundle = getIntent().getExtras();
-        nombre = bundle.getString("username");
+        user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.usernameid);
-        nombreTV.setText(nombre.toString());
+        nombreTV.setText(user.getNombre());
 
         intensidad = (SeekBar) findViewById(R.id.intensidadtosid);
         dificultadrespirar = (SeekBar) findViewById(R.id.dificultadid);
@@ -105,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
     public void enviar(View v){
 
         Intent i = new Intent(this, MainHomeActivity.class );
-        i.putExtra("username", nombre);
+        i.putExtra("user", user);
         startActivity(i);
     }
 }

@@ -8,8 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainHomeActivity extends AppCompatActivity {
-
-    String nombre;
+    Usuario user;
     TextView nombreTV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,23 +16,22 @@ public class MainHomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main_home);
 
 
-        Bundle bundle = getIntent().getExtras();
-        nombre = bundle.getString("username");
+        user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.usernameid);
-        nombreTV.setText(nombre.toString());
+        nombreTV.setText(user.getNombre());
 
     }
 
     public void cambiarInfoPersonal(View v){
         Intent i = new Intent(this, HomeActivity.class );
-        i.putExtra("username", nombre);
+        i.putExtra("user",user);
         startActivity(i);
 
     }
 
     public void registrarSintomas(View v){
         Intent i = new Intent(this, RegisterActivity.class );
-        i.putExtra("username", nombre);
+        i.putExtra("user", user);
         startActivity(i);
     }
 }
