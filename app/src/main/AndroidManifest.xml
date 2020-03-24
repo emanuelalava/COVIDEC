@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_index_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MainHomeActivity"></activity>
+        <activity android:name=".EstadisticActivity"></activity>
+        <activity android:name=".MainHomeActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">
