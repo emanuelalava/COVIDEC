@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.Color;
 import android.os.Bundle;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -26,7 +27,10 @@ public class activity_stadistics extends AppCompatActivity {
         getEntries();
         lineDataSet = new LineDataSet(lineEntries, "");
         lineData = new LineData(lineDataSet);
+
         lineChart.setData(lineData);
+        lineChart.getAxis(YAxis.AxisDependency.LEFT).setAxisMaximum(40f);
+        lineChart.getAxis(YAxis.AxisDependency.LEFT).setAxisMinimum(35f);
         lineDataSet.setColors(ColorTemplate.JOYFUL_COLORS);
         lineDataSet.setValueTextColor(Color.BLACK);
         lineDataSet.setValueTextSize(18f);

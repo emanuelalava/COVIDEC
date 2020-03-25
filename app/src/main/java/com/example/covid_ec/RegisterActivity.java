@@ -40,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
         estado.put(2,"Mejor que ayer");
 
 
+
+
         tvintensidad.setText(estado.get(intensidad.getProgress()));
         tvdificultad.setText(estado.get(dificultadrespirar.getProgress()));
         tvdolor.setText(estado.get(dolor.getProgress()));
