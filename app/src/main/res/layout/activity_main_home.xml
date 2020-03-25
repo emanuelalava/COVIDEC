@@ -69,6 +69,7 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/save_button"
+        android:onClick="estadisticas"
         android:text="Evolución de los Síntomas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
