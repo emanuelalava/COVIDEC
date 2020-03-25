@@ -35,10 +35,10 @@ public class RegisterActivity extends AppCompatActivity {
         tvdificultad = (TextView) findViewById(R.id.TVdificultadid);
         tvdolor = (TextView) findViewById(R.id.TVdolorid);
 
-        estado.put(0,"Despreciable");
-        estado.put(1,"Bajo");
-        estado.put(2,"Medio");
-        estado.put(3,"Alto");
+        estado.put(0,"Peor que ayer");
+        estado.put(1,"Igual que ayer");
+        estado.put(2,"Mejor que ayer");
+
 
         tvintensidad.setText(estado.get(intensidad.getProgress()));
         tvdificultad.setText(estado.get(dificultadrespirar.getProgress()));

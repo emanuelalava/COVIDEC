@@ -1,8 +1,4 @@
 package com.example.covid_ec;
-
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.io.Serializable;
 
 
@@ -18,12 +14,7 @@ public class Usuario implements Serializable {
         this.username = username;
     }
 
-    private Usuario(Parcel parcel){
-        // In the same order than the original constructor
-        this.username = parcel.readString();
-        this.nombres = parcel.readString();
-        this.apellidos = parcel.readString();
-    }
+
     public String getUsername() {
         return username;
     }
