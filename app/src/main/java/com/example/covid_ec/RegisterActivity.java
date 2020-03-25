@@ -108,4 +108,8 @@ public class RegisterActivity extends AppCompatActivity {
         i.putExtra("user", user);
         startActivity(i);
     }
+
+
+
+
 }

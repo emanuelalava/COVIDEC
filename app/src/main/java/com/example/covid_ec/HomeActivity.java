@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class HomeActivity extends AppCompatActivity {
@@ -32,7 +33,12 @@ public class HomeActivity extends AppCompatActivity {
         //Bundle bundle = getIntent().getExtras();
         user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.nombreTV);
-        String nombreText="Bienvenido: "+user.getNombre();
+        //
+        //
+        //NOTAAA CAMBIAR getUsername por getNombre()
+        //
+        //
+        String nombreText="Bienvenido: "+user.getUsername();
         nombreTV.setText(nombreText);
 
     }
@@ -48,9 +54,38 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void nextActivity(View view) {
+        if (envioDeRegistro()){
+            Intent i = new Intent(this, MainHomeActivity.class );
+            i.putExtra("user",user);
+            startActivity(i);
+        }
+        else{
+            Toast toast = Toast.makeText(getApplicationContext(),"Fallo de conexión",Toast.LENGTH_LONG);
+            toast.show();
+        }
 
-        Intent i = new Intent(this, MainHomeActivity.class );
-        i.putExtra("user",user);
-        startActivity(i);
     }
+
+    public boolean envioDeRegistro(){
+        if (!sexo.isChecked()){
+            user.setSexo(sexo.getTextOff().toString());
+        }
+        else{
+            user.setSexo(sexo.getTextOn().toString());
+        }
+        user.setLugar(lugar.getText().toString());
+        user.setFecha(fecha.getText().toString());
+        user.setPeso(peso.getText().toString());
+        user.setTalla(talla.getText().toString());
+        user.setTelefono(telefono.getText().toString());
+        user.setTelefonoContacto(telefonoContacto.getText().toString());
+        /*
+        *  Envio de datos a la nube
+        *  Si es exitoso retorna true,
+        *  Caso contrario false
+        */
+        return true;
+    }
+
+
 }

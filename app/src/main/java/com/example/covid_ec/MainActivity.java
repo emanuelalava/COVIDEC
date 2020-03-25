@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,14 +24,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void iniciarSesion(View view) {
-        Usuario user = new Usuario(username.getText().toString(),"Winter Emanuel","Alava Intriago");
+        Usuario user = new Usuario(username.getText().toString());
+
+        if (login(user.getUsername())){
+            Intent i = new Intent(this, HomeActivity.class );
+            i.putExtra("user", user);
+            startActivity(i);
+        }
+        else{
+            Toast toast = Toast.makeText(getApplicationContext(),"Fallo de conexión",Toast.LENGTH_LONG);
+            toast.show();
+        }
 
 
-        Intent i = new Intent(this, HomeActivity.class );
-        i.putExtra("user", user);
-        startActivity(i);
+
     }
 
+    public boolean login(String user){
+
+        return user.equals("emanuelalava");
+    }
 
     public void openGoogle(View v){
         Uri uri = Uri.parse("https://www.who.int/es/emergencies/diseases/novel-coronavirus-2019");
