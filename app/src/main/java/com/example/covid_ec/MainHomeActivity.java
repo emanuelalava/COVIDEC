@@ -34,4 +34,8 @@ public class MainHomeActivity extends AppCompatActivity {
         i.putExtra("user", user);
         startActivity(i);
     }
+    public void estadisticas(View view){
+        Intent i = new Intent(this, activity_stadistics.class );
+        startActivity(i);
+    }
 }
