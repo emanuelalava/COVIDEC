@@ -43,7 +43,7 @@ public class RecomendacionesActivity extends AppCompatActivity {
     * RECOMENDACIONES DE PRUEBA
     * */
         recomendaciones.add(new Recomendacion("Lian Alava","22/05/2020","Tome mucha agua"));
-        recomendaciones.add(new Recomendacion("Jorge Duque","01/06/2020","Ya fue"));
+        recomendaciones.add(new Recomendacion("Gustavo Behr","01/06/2020","Ya fue"));
 
 
         for (Recomendacion receta: recomendaciones){
