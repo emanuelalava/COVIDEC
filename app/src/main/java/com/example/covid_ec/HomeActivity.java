@@ -8,12 +8,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+
 import java.util.ArrayList;
 import java.util.Hashtable;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class HomeActivity extends AppCompatActivity {
     Usuario user;
@@ -21,7 +31,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView nombreTV;
     ToggleButton sexo;
     Button botonEditar;
-
+    ListView listView1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
         this.talla = (EditText)findViewById(R.id.tallaid);
         this.telefono = (EditText)findViewById(R.id.telefonoid);
         this.telefonoContacto = (EditText)findViewById(R.id.telefonoContactoid);
-
+        this.listView1=(ListView) findViewById(R.id.listView);
         user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.nombreTV);
         botonEditar = (Button) findViewById(R.id.editarbtnid);
@@ -125,6 +135,9 @@ public class HomeActivity extends AppCompatActivity {
         */
         return true;
     }
+
+
+
 
 
 }

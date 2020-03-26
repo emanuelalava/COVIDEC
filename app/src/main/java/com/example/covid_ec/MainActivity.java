@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         /*
         * Chicos aqui va la validacion en el servidor con los parámetros user y pass
         * */
-        return user.equals("emanuelalava");
+        return true;
     }
 
     public void openGoogle(View v){
