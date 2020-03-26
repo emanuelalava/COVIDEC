@@ -26,36 +26,35 @@ public class MainHomeActivity extends AppCompatActivity {
     TextView nombreTV;
     private JsonObject j;
     Map<String, Object> retMap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_home);
-
-
         user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.usernameid);
         nombreTV.setText(user.getUsername());
-
     }
 
-    public void cambiarInfoPersonal(View v){
-        Intent i = new Intent(this, HomeActivity.class );
-        i.putExtra("user",user);
-        startActivity(i);
-
-    }
-
-    public void registrarSintomas(View v){
-        Intent i = new Intent(this, RegisterActivity.class );
+    public void cambiarInfoPersonal(View v) {
+        Intent i = new Intent(this, HomeActivity.class);
         i.putExtra("user", user);
         startActivity(i);
     }
-    public void estadisticas(View view){
-        Intent i = new Intent(this, activity_stadistics.class );
+
+    public void registrarSintomas(View v) {
+        Intent i = new Intent(this, RegisterActivity.class);
+        i.putExtra("user", user);
         startActivity(i);
     }
 
-    public void obtenerMensajes(){
+    public void estadisticas(View view) {
+        Intent i = new Intent(this, activity_stadistics.class);
+        startActivity(i);
+    }
+
+
+    public void obtenerMensajes() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://covid19ec-2d508.firebaseio.com/")
                 .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().create()))
@@ -67,12 +66,13 @@ public class MainHomeActivity extends AppCompatActivity {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                j=response.body();
-                retMap= new Gson().fromJson(
-                        j.get("-M3NeF-OMugt8b0U8UjU"), new TypeToken<HashMap<String, Object>>() {}.getType()
+                j = response.body();
+                retMap = new Gson().fromJson(
+                        j.get("-M3NeF-OMugt8b0U8UjU"), new TypeToken<HashMap<String, Object>>() {
+                        }.getType()
                 );
-               // System.out.println(j.get("-M3NeF-OMugt8b0U8UjU"));
-               System.out.println(j);
+                // System.out.println(j.get("-M3NeF-OMugt8b0U8UjU"));
+                System.out.println(j);
             }
 
             @Override
@@ -83,11 +83,17 @@ public class MainHomeActivity extends AppCompatActivity {
 
 
     }
-    public void mostrarMensajes(View view){
+
+    public void mostrarMensajes(View view) {
         obtenerMensajes();
-        Intent i =new Intent(this,Mensajes.class);
+        Intent i = new Intent(this, Mensajes.class);
         startActivity(i);
 
 
+        public void verRecomendaciones (View v){
+            Intent i = new Intent(this, RecomendacionesActivity.class);
+            i.putExtra("user", user);
+            startActivity(i);
+        }
     }
 }
