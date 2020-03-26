@@ -14,19 +14,15 @@ public class MainHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_home);
-
-
         user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.usernameid);
         nombreTV.setText(user.getUsername());
-
     }
 
     public void cambiarInfoPersonal(View v){
         Intent i = new Intent(this, HomeActivity.class );
         i.putExtra("user",user);
         startActivity(i);
-
     }
 
     public void registrarSintomas(View v){
@@ -36,6 +32,12 @@ public class MainHomeActivity extends AppCompatActivity {
     }
     public void estadisticas(View view){
         Intent i = new Intent(this, activity_stadistics.class );
+        startActivity(i);
+    }
+
+    public void verRecomendaciones(View v){
+        Intent i = new Intent(this, RecomendacionesActivity.class);
+        i.putExtra("user", user);
         startActivity(i);
     }
 }
