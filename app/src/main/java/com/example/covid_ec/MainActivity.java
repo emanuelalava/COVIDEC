@@ -24,11 +24,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void iniciarSesion(View view) {
+
+        /*
+        * Objeto Usuario
+        */
         Usuario user = new Usuario(username.getText().toString());
 
-        if (login(user.getUsername())){
+        if (validandoSesion(user.getUsername(),password.getText().toString())){
+            /*
+            * Aqui se hace la peticion al server de los datos del usuario
+            * correspondiente.
+            * Se setean los valores del Objeto user (Usuario) nombres, apellidos, telfn, etc
+            * */
+
             Intent i = new Intent(this, MainHomeActivity.class );
             i.putExtra("user", user);
+            Toast toast1 = Toast.makeText(getApplicationContext(),"Conexión Exitosa",Toast.LENGTH_SHORT);
+            toast1.show();
             startActivity(i);
         }
         else{
@@ -40,8 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public boolean login(String user){
-
+    public boolean validandoSesion(String user,String pass){
+        /*
+        * Chicos aqui va la validacion en el servidor con los parámetros user y pass
+        * */
         return user.equals("emanuelalava");
     }
 

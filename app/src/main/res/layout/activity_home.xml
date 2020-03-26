@@ -108,15 +108,15 @@
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <Button
-        android:id="@+id/guardar"
+        android:id="@+id/editarbtnid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/save_button"
-        android:onClick="nextActivity"
-        android:text="Guardar"
+        android:onClick="editarButton"
+        android:text="EDITAR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />

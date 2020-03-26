@@ -6,16 +6,21 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
 
 public class HomeActivity extends AppCompatActivity {
     Usuario user;
     EditText lugar,fecha,peso,talla,telefono,telefonoContacto;
     TextView nombreTV;
     ToggleButton sexo;
+    Button botonEditar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +35,45 @@ public class HomeActivity extends AppCompatActivity {
         this.telefono = (EditText)findViewById(R.id.telefonoid);
         this.telefonoContacto = (EditText)findViewById(R.id.telefonoContactoid);
 
-        //Bundle bundle = getIntent().getExtras();
         user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.nombreTV);
-        //
-        //
-        //NOTAAA CAMBIAR getUsername por getNombre()
-        //
-        //
+        botonEditar = (Button) findViewById(R.id.editarbtnid);
         String nombreText="Bienvenido: "+user.getUsername();
         nombreTV.setText(nombreText);
 
+        /*
+        * Se deben settear todos los campos con los valores que se deben obtener de la DB        *
+        * */
+
+        String lugarDB="";String fechaDB="";String sexoDB="";String pesoDB="";String tallaDB="";String telefonoDB="";String contactoDB="";
+
+        if (sexoDB.equals("FEMENINO")){
+            sexo.setChecked(true);
+        }
+        else{
+            sexo.setChecked(false);
+        }
+        lugar.setText(lugarDB);
+        fecha.setText(fechaDB);
+        peso.setText(pesoDB);
+        talla.setText(tallaDB);
+        telefono.setText(telefonoDB);
+        telefonoContacto.setText(contactoDB);
+
+        ArrayList<EditText> textos = new ArrayList<EditText>();
+        textos.add(lugar);
+        textos.add(fecha);
+        textos.add(peso);
+        textos.add(talla);
+        textos.add(telefono);
+        textos.add(telefonoContacto);
+
+        for (EditText et : textos){
+            et.setEnabled(false);
+       }
+
     }
+
 
     public void cambiarColor(View v){
 
@@ -53,34 +85,41 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    public void nextActivity(View view) {
-        if (envioDeRegistro()){
-            Intent i = new Intent(this, MainHomeActivity.class );
-            i.putExtra("user",user);
-            startActivity(i);
+    public void editarButton(View v){
+
+        if (botonEditar.getText().toString().equals("EDITAR")){
+            telefono.setEnabled(true);
+            telefonoContacto.setEnabled(true);
+            botonEditar.setText("GUARDAR");
         }
         else{
-            Toast toast = Toast.makeText(getApplicationContext(),"Fallo de conexión",Toast.LENGTH_LONG);
-            toast.show();
+            /*
+            * Se actualiza en la base de datos los nuevos valores ingresados de numeros telefonicos
+            * */
+
+            if (envioDeTelefonos()) {
+                botonEditar.setText("EDITAR");
+                Intent i = new Intent(this, MainHomeActivity.class);
+                i.putExtra("user", user);
+                Toast toast = Toast.makeText(getApplicationContext(),"Cambio Exitoso",Toast.LENGTH_SHORT);
+                toast.show();
+                startActivity(i);
+            }
+            else{
+                Toast toast = Toast.makeText(getApplicationContext(),"Fallo de conexión",Toast.LENGTH_LONG);
+                toast.show();
+            }
         }
+
 
     }
 
-    public boolean envioDeRegistro(){
-        if (!sexo.isChecked()){
-            user.setSexo(sexo.getTextOff().toString());
-        }
-        else{
-            user.setSexo(sexo.getTextOn().toString());
-        }
-        user.setLugar(lugar.getText().toString());
-        user.setFecha(fecha.getText().toString());
-        user.setPeso(peso.getText().toString());
-        user.setTalla(talla.getText().toString());
-        user.setTelefono(telefono.getText().toString());
-        user.setTelefonoContacto(telefonoContacto.getText().toString());
+
+
+    public boolean envioDeTelefonos(){
+
         /*
-        *  Envio de datos a la nube
+        *  Envio de telefonos a la nube
         *  Si es exitoso retorna true,
         *  Caso contrario false
         */
