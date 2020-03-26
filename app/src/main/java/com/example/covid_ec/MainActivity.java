@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Usuario user = new Usuario(username.getText().toString());
 
         if (login(user.getUsername())){
-            Intent i = new Intent(this, HomeActivity.class );
+            Intent i = new Intent(this, MainHomeActivity.class );
             i.putExtra("user", user);
             startActivity(i);
         }

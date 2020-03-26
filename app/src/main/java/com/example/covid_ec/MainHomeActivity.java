@@ -18,7 +18,7 @@ public class MainHomeActivity extends AppCompatActivity {
 
         user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.usernameid);
-        nombreTV.setText(user.getNombre());
+        nombreTV.setText(user.getUsername());
 
     }
 
