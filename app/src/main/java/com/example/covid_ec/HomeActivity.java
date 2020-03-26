@@ -38,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
         user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.nombreTV);
         botonEditar = (Button) findViewById(R.id.editarbtnid);
-        String nombreText="Bienvenido: "+user.getUsername();
+        String nombreText="HOLA: "+user.getUsername();
         nombreTV.setText(nombreText);
 
         /*
