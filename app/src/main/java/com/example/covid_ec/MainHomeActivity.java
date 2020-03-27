@@ -99,6 +99,7 @@ public class MainHomeActivity extends AppCompatActivity {
         startActivity(i);
     }
     public void verRecomendaciones (View v){
+        System.out.println(recomendaciones1+"dddddddddddddddddddddd");
         obtenerMensajes();
 
         final Intent i = new Intent(this, Mensajes.class);
@@ -107,10 +108,9 @@ public class MainHomeActivity extends AppCompatActivity {
             public void run()
             {
                 while (recomendaciones1.isEmpty()){
-                    System.out.println(recomendaciones1);
-                    i.putExtra("mapa",recomendaciones1);
 
                 }
+                i.putExtra("mapa",recomendaciones1);
                 startActivity(i);
 
             }

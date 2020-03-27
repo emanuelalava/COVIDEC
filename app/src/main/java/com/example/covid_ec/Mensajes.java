@@ -24,6 +24,7 @@ public class Mensajes extends AppCompatActivity {
         linear = (LinearLayout) findViewById(R.id.linearlayout);
 
        lista = (ArrayList<Recomendacion>) getIntent().getSerializableExtra("mapa");
+        System.out.println(lista);
         cargarRecomendacion();
     }
 
