@@ -44,7 +44,7 @@ public class HomeActivity extends AppCompatActivity {
         this.talla = (EditText)findViewById(R.id.tallaid);
         this.telefono = (EditText)findViewById(R.id.telefonoid);
         this.telefonoContacto = (EditText)findViewById(R.id.telefonoContactoid);
-        this.listView1=(ListView) findViewById(R.id.listView);
+//        this.listView1=(ListView) findViewById(R.id.listView);
         user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.nombreTV);
         botonEditar = (Button) findViewById(R.id.editarbtnid);

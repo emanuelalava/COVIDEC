@@ -23,7 +23,7 @@ public class RecomendacionesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recomendaciones);
+       // setContentView(R.layout.activity_recomendaciones);
         user = (Usuario) getIntent().getSerializableExtra("user");
         nombreTV = (TextView) findViewById(R.id.usernameid);
         nombreTV.setText(user.getUsername());
@@ -61,4 +61,7 @@ public class RecomendacionesActivity extends AppCompatActivity {
         }
         return  recomendaciones;
     }
+
+
+
 }

@@ -13,8 +13,8 @@
         android:roundIcon="@mipmap/ic_index_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".Mensajes"></activity>
-        <activity android:name=".RecomendacionesActivity"></activity>
+        <activity android:name=".Mensajes" />
+        <activity android:name=".RecomendacionesActivity" />
         <activity android:name=".activity_stadistics" />
         <activity android:name=".EstadisticActivity" />
         <activity android:name=".MainHomeActivity" />

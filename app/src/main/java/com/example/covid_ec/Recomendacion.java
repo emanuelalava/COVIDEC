@@ -1,6 +1,8 @@
 package com.example.covid_ec;
 
-public class Recomendacion {
+import java.io.Serializable;
+
+public class Recomendacion implements Serializable {
     String nombreDoctor;
     String fecha; // No le puse el objeto date para mas simplicidad
     String mensaje;
@@ -33,5 +35,14 @@ public class Recomendacion {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    @Override
+    public String toString() {
+        return "Recomendacion{" +
+                "nombreDoctor='" + nombreDoctor + '\'' +
+                ", fecha='" + fecha + '\'' +
+                ", mensaje='" + mensaje + '\'' +
+                '}';
     }
 }
